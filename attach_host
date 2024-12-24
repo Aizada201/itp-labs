@@ -19,4 +19,6 @@ fi
 
 # Execute mnexec to attach a shell to the host
 echo "Attaching to host '$HOST_NAME' with PID $HOST_PID..."
-sudo mnexec -a "$HOST_PID" bash
+
+sudo mnexec -a "$HOST_PID" \
+       bash -c "env PS1='${HOST_NAME}:\w> ' bash --norc"
